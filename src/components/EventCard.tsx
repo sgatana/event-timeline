@@ -17,6 +17,7 @@ const EventCard = ({
       className={`w-[130px] ${heightClass} p-2 ${bgColor} relative rounded-[5px] flex flex-col gap-y-2 z-10 shadow-md justify-around text-balance leading-[18.2px] ${
         isFinal && '-ml-[67px]'
       }`}
+      data-testid='event-card'
     >
       <img src={imgUrl} alt={title} className='w-full' />
       {title}
