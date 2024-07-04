@@ -1,4 +1,3 @@
-import React from 'react';
 import TimelineStage from './TimelineStage';
 
 type TimelineItemProps = {

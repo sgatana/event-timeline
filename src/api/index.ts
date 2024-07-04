@@ -62,7 +62,7 @@ export const events: Event[] = [
     title: 'make a contribution to my community through philanthropy',
     imgUrl: 'vision.svg',
     label: 'Ultimately',
-    className: 'mt-4 -right-[60px] w-28 text-center',
+    className: 'mt-12 -right-[60px] w-28 text-center',
     isFinal: true,
     pointerPosition: 'top',
   },
