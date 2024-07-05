@@ -10,21 +10,19 @@ const EventDetails = ({
   event: Event;
   isFinal?: boolean;
 }) => {
+  const { label, className, pointerPosition, title, imgUrl } = event;
   return (
-    <div className={`absolute ${event.className}`}>
-      {event.label && <TimelineLabel
-              text={event.label}
-              className='mb-1'
-            />}
+    <div className={`absolute ${className}`}>
+      {label && <TimelineLabel text={label} className='mb-1' />}
       <div
         className={`ml-[50%] -translate-x-[50%]  absolute flex flex-col items-center gap-y-4 ${
-          event.pointerPosition === 'top' ? 'flex-col-reverse mt-3 ' : 'mt-6'
+          pointerPosition === 'top' ? 'flex-col-reverse mt-3 ' : 'mt-6'
         }`}
       >
         <EventCard
-          title={event.title}
-          cardPosition={event.pointerPosition}
-          imgUrl={`assets/${event.imgUrl}`}
+          title={title}
+          cardPosition={pointerPosition}
+          imgUrl={`assets/${imgUrl}`}
           isFinal={isFinal}
         />
         <div className='h-6 border border-light-cyan  w-0' />

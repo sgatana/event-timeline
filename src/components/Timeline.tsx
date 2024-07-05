@@ -5,7 +5,7 @@ import { events } from '../api';
 import TimelineStage from './TimelineStage';
 
 const Timeline = () => {
-  const lastEvent = events.length - 1
+  const lastEvent = events.length - 1;
   return (
     <div className='w-full h-auto mx-auto max-w-screen-xl'>
       <ul className='flex items-center justify-center gap-1'>
@@ -17,32 +17,28 @@ const Timeline = () => {
           />
         </li>
         {events.map((event, ind) => {
+          const {
+            label,
+            transitionWidth,
+            isBorderDashed,
+            isFinal,
+            title,
+            className,
+          } = event;
           return (
-            <li className='relative' key={event.label}>
-              {event.transitionWidth && (
+            <li className='relative' key={label}>
+              {transitionWidth && (
                 <TimelineItem
-                  transitionWidth={event.transitionWidth}
-                  isBorderDashed={event.isBorderDashed}
+                  transitionWidth={transitionWidth}
+                  isBorderDashed={isBorderDashed}
                 />
               )}
-              {event.title ? (
-                <EventDetails
-                  event={{
-                    title: event.title,
-                    label: event.label,
-                    imgUrl: event.imgUrl,
-                    className: event.className,
-                    pointerPosition: event.pointerPosition,
-                  }}
-                  isFinal={event.isFinal}
-                />
+              {title ? (
+                <EventDetails event={event} isFinal={isFinal} />
               ) : (
-                <TimelineLabel
-                  text={event.label!}
-                  className={event.className}
-                />
+                <TimelineLabel text={label!} className={className} />
               )}
-              {ind === lastEvent &&  <TimelineStage isFinalStage />}
+              {ind === lastEvent && <TimelineStage isFinalStage />}
             </li>
           );
         })}
